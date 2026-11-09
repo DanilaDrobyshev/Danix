@@ -1,20 +1,30 @@
-# Danix: algo trading platform for AI agents
+<div align="center">
 
-**Danix is a free, local algorithmic crypto trading platform built for AI agents.**
-You build trading bots as visual node graphs (no code), backtest them on real tick
-data, optimize them and run them live on **Bybit** and **Binance**, futures and spot.
-A built-in **MCP server** lets any AI agent (Claude, ChatGPT, Cursor, Gemini CLI,
-VS Code or a local LLM) design, edit, backtest and explain strategies for you.
-The agent builds and tests. You review and launch.
+# Danix
 
-Windows (Linux build available) · Free · Runs on your computer · Your API keys never leave it
+**Algo trading platform for AI agents, on your own machine.**
 
-[Download the latest release](https://github.com/DanilaDrobyshev/Danix/releases/latest)
-· [Use with an AI agent](#use-danix-with-any-ai-agent)
-· [Features](#features)
-· [FAQ](#faq)
+[![release](https://img.shields.io/github/v/release/DanilaDrobyshev/Danix?label=release&color=2f81f7)](https://github.com/DanilaDrobyshev/Danix/releases/latest)
+[![downloads](https://img.shields.io/github/downloads/DanilaDrobyshev/Danix/total?color=2ea043)](https://github.com/DanilaDrobyshev/Danix/releases)
+![platform](https://img.shields.io/badge/platform-Windows%20%7C%20Linux-555)
+![exchanges](https://img.shields.io/badge/exchanges-Bybit%20%7C%20Binance%20%7C%20KuCoin-f0b90b)
+[![MCP](https://img.shields.io/badge/MCP-server-8957e5)](#use-danix-with-any-ai-agent)
+![price](https://img.shields.io/badge/price-free-2ea043)
 
-![Danix: an AI agent builds a trading strategy as a node graph, then a backtest replays it on the chart](docs/img/hero.png)
+A free, local algorithmic crypto trading platform. Build trading bots as visual node
+graphs (no code), backtest them on real tick data, optimize them and run them live on
+**Bybit**, **Binance** and **KuCoin**, futures and spot. A built-in **MCP server** lets
+any AI agent (Claude, ChatGPT, Cursor, Gemini CLI, VS Code or a local LLM) design, edit,
+backtest and explain strategies for you. The agent builds and tests. You review and launch.
+
+[**Download**](https://github.com/DanilaDrobyshev/Danix/releases/latest) ·
+[Use with an AI agent](#use-danix-with-any-ai-agent) ·
+[Features](#features) ·
+[Install](#install) ·
+[FAQ](#faq) ·
+[Report a bug](https://github.com/DanilaDrobyshev/Danix/issues)
+
+</div>
 
 ---
 
@@ -48,7 +58,7 @@ same bots:
 - A strategy is a plain JSON file you can copy, share and keep in git.
 
 ### Backtesting, MT5-style
-- Tick mode on real Bybit and Binance trade archives, or candles only.
+- Tick mode on real Bybit, Binance and KuCoin trade archives, or candles only.
 - Spread, latency (ping) and real maker/taker fees from your account, or set by hand.
 - Multi-timeframe strategies, warmup, date range or last N candles.
 - Visual mode replays the test on the chart with a speed control.
@@ -60,7 +70,8 @@ same bots:
 - Walk-forward testing and a stability score that flags lucky results.
 
 ### Live trading bots
-- Bybit and Binance, futures (USDT perpetual) and spot, Demo and Live accounts.
+- Bybit, Binance and KuCoin, futures (USDT perpetual) and spot. Demo and Live accounts
+  on Bybit and Binance, Live on KuCoin.
   Switching to Live always asks for confirmation.
 - Start, pause, resume and stop bots. They resume after a restart.
 - Risk controls: budget, max position and max daily loss per bot, global margin
@@ -134,20 +145,31 @@ server with the command `Danix.exe --mcp` (stdio) in your client's MCP settings.
 | --- | --- | --- | --- | --- | --- |
 | Bybit | Yes | Yes | Yes | Yes | Yes |
 | Binance | Yes | Yes | Yes | Yes | Yes |
+| KuCoin | Yes | Yes | No | Yes | Yes |
 
 More exchanges are planned.
 
 ## Install
 
-1. Download `DanixSetup-<version>.exe` (Windows installer), the portable zip, or
-   the Linux `tar.gz` from [Releases](https://github.com/DanilaDrobyshev/Danix/releases/latest).
+1. Download from [Releases](https://github.com/DanilaDrobyshev/Danix/releases/latest):
+   - `Danix-<version>-win-x64-setup.exe`: Windows installer, updates itself (recommended);
+   - `Danix-<version>-win-x64-portable.zip`: portable folder, no install, data next to the exe, update by hand;
+   - `danix-<version>-linux-x64.tar.gz`: Linux build.
 2. Windows may show a SmartScreen warning because the app is not code-signed yet.
    Click **More info → Run anyway**.
 3. Open Danix, pick an exchange, add API keys (or use Demo), and open the bundled
    example strategies.
 
 The Windows installer updates itself: Danix checks GitHub for a new signed release
-and installs it in one click.
+and installs it in one click. The portable zip does not: download the new zip yourself.
+
+**Install with an AI agent (Windows, no admin):** the agent can run one command. It
+downloads the installer, checks its SHA-256, installs it silently for the current user
+and connects Danix to Claude Code as an MCP server:
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -Command "irm https://raw.githubusercontent.com/DanilaDrobyshev/Danix/main/install.ps1 | iex"
+```
 
 ## Privacy and security
 
@@ -174,7 +196,8 @@ Yes. Danix is free to use. A paid VPS option to keep bots running 24/7 without y
 computer is planned.
 
 ### Which exchanges does Danix support?
-Bybit and Binance, futures and spot, Demo and Live accounts.
+Bybit, Binance and KuCoin, futures and spot. Bybit and Binance have Demo and Live
+accounts, KuCoin has Live.
 
 ### Does the AI trade with my money?
 Not on its own. Requests that could open a trade follow the permissions you set:
