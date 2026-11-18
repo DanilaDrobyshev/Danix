@@ -10,6 +10,7 @@
 ![exchanges](https://img.shields.io/badge/exchanges-Bybit%20%7C%20Binance%20%7C%20KuCoin-f0b90b)
 [![MCP](https://img.shields.io/badge/MCP-server-8957e5)](#use-danix-with-any-ai-agent)
 ![price](https://img.shields.io/badge/price-free-2ea043)
+[![M8ven Score](https://m8ven.ai/badge/mcp/daniladrobyshev-danix-3dmb5j)](https://m8ven.ai/mcp/daniladrobyshev-danix-3dmb5j?s=readme)
 
 A free, local algorithmic crypto trading platform. Build trading bots as visual node
 graphs (no code), backtest them on real tick data, optimize them and run them live on
